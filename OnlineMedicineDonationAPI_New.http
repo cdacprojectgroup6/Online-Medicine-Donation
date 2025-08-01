@@ -1,0 +1,6 @@
+@OnlineMedicineDonationAPI_New_HostAddress = http://localhost:5038
+
+GET {{OnlineMedicineDonationAPI_New_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
