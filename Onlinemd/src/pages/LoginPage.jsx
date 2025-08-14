@@ -131,12 +131,20 @@ const LoginPage = () => {
                 >
                   NGO
                 </Button>
+<<<<<<< HEAD
                 <Button 
+=======
+                {/* <Button 
+>>>>>>> e494192 (Final Push)
                   onClick={() => navigate('/admin-signup')} 
                   className="text-black bg-orange-400 hover:bg-orange-500 hover:scale-105 transition-all duration-200 font-semibold shadow-lg hover:shadow-xl"
                 >
                   Admin
+<<<<<<< HEAD
                 </Button>
+=======
+                </Button> */}
+>>>>>>> e494192 (Final Push)
               </div>
             </motion.div>
           </motion.div>

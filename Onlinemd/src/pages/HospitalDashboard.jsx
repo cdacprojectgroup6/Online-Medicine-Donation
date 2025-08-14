@@ -129,7 +129,11 @@ const HospitalDashboard = () => {
 
     toast({
       title: "Order placed successfully!",
+<<<<<<< HEAD
       description: `Your request for ${donation.medicineName} has been sent to the donor.`,
+=======
+      description: `Your request for ${donation.medicineName} has been sent to the Admin.`,
+>>>>>>> e494192 (Final Push)
     });
   };
 
@@ -206,14 +210,22 @@ const HospitalDashboard = () => {
                   <Building2 className="w-4 h-4 mr-2" />
                   Hospital Portal
                 </Badge>
+<<<<<<< HEAD
                 <Button 
+=======
+                {/* <Button 
+>>>>>>> e494192 (Final Push)
                   onClick={() => navigate('/hospital/orders')}
                   variant="outline" 
                   className="border-white/20 text-white hover:bg-white/10"
                 >
                   <Package className="w-4 h-4 mr-2" />
                   View Orders
+<<<<<<< HEAD
                 </Button>
+=======
+                </Button> */}
+>>>>>>> e494192 (Final Push)
               </div>
             </div>
           </motion.div>

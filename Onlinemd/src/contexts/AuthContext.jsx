@@ -1,8 +1,12 @@
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { toast } from '@/components/ui/use-toast';
+<<<<<<< HEAD
 // import { userService } from '@/services/userService'; // Comment out real service
 import { mockUserService as userService } from '@/services/mockUserService'; // Use mock service
+=======
+import { userService } from '@/services/userService';
+>>>>>>> e494192 (Final Push)
 
 const AuthContext = createContext();
 
@@ -24,11 +28,17 @@ export const AuthProvider = ({ children }) => {
     if (storedUser) {
       try {
         const userData = JSON.parse(storedUser);
+<<<<<<< HEAD
         console.log('Found stored user:', userData);
         setUser(userData);
         setIsAuthenticated(true);
       } catch (error) {
         console.error('Error parsing stored user:', error);
+=======
+        setUser(userData);
+        setIsAuthenticated(true);
+      } catch (error) {
+>>>>>>> e494192 (Final Push)
         localStorage.removeItem('medishare_user');
       }
     }
@@ -82,8 +92,11 @@ export const AuthProvider = ({ children }) => {
     });
   };
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> e494192 (Final Push)
   const value = {
     user,
     isAuthenticated,

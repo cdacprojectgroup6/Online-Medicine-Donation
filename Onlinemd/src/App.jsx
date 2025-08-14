@@ -28,6 +28,10 @@ import HospitalList from '@/pages/HospitalList';
 import MedicineList from '@/pages/MedicineList';
 import SettingsPage from '@/pages/SettingsPage';
 import Analytics from '@/pages/Analytics';
+<<<<<<< HEAD
+=======
+import NewRequest from '@/pages/NewRequest';
+>>>>>>> e494192 (Final Push)
 
 // Signup Pages
 import DonorSignup from '@/pages/signup/DonorSignup';
@@ -37,6 +41,10 @@ import TestConnection from '@/components/TestConnection';
 import LoginTest from '@/pages/LoginTest';
 import DebugPage from '@/pages/DebugPage';
 import RoleTest from '@/pages/RoleTest';
+<<<<<<< HEAD
+=======
+import RequestListUser from '@/pages/RequestListUser';
+>>>>>>> e494192 (Final Push)
 
 // Helper function to map user roles to routes
 function getUserRoute(role) {
@@ -52,6 +60,7 @@ function getUserRoute(role) {
 function ProtectedRoute({ children, allowedRoles }) {
   const { user, isAuthenticated } = useAuth();
 
+<<<<<<< HEAD
   console.log('ProtectedRoute - user:', user, 'isAuthenticated:', isAuthenticated, 'allowedRoles:', allowedRoles);
 
   if (!isAuthenticated) {
@@ -66,6 +75,16 @@ function ProtectedRoute({ children, allowedRoles }) {
   }
 
   console.log('User authorized, rendering protected content');
+=======
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (allowedRoles && !allowedRoles.includes(user?.role)) {
+    return <Navigate to="/login" replace />;
+  }
+
+>>>>>>> e494192 (Final Push)
   return children;
 }
 
@@ -138,6 +157,13 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       />
+<<<<<<< HEAD
+=======
+
+       <Route path="/requests" element={<RequestList />} />
+        <Route path="/requests/new" element={<NewRequest />} />
+
+>>>>>>> e494192 (Final Push)
       <Route
         path="/admin"
         element={
@@ -147,6 +173,19 @@ function AppRoutes() {
         }
       />
 
+<<<<<<< HEAD
+=======
+      {/* Admin Pages */}
+      <Route
+        path="/medicines"
+        element={
+          <ProtectedRoute allowedRoles={['Admin']}>
+            <MedicinePage />
+          </ProtectedRoute>
+        }
+      />
+
+>>>>>>> e494192 (Final Push)
       {/* Signup Routes */}
       <Route path="/admin-signup" element={<AdminSignup />} />
       <Route path="/register/donor" element={<DonorSignup />} />
@@ -155,6 +194,7 @@ function AppRoutes() {
       <Route path="/forgot-password" element={<ForgotPassword />} />
 
       {/* Admin Resource Pages */}
+<<<<<<< HEAD
       <Route 
         path="/users" 
         element={
@@ -274,6 +314,29 @@ function AppRoutes() {
       {/* Default Route */}
       <Route path="/" element={<Navigate to="/login" replace />} />
       
+=======
+      <Route path="/users" element={<UserList />} />
+      <Route path="/request" element={<RequestListUser/>} />
+      <Route path="/users/new" element={<UserCreate />} />
+      <Route path="/donations" element={<DonationList />} />
+      <Route path="/ngos" element={<NGOList />} />
+      <Route path="/hospitals" element={<HospitalList />} />
+      <Route path="/medicinelist" element={<MedicineList />} />
+      <Route path="/settings" element={<SettingsPage />} />
+      <Route path="/analytics" element={<Analytics />} />
+      <Route path="/test" element={<TestPage />} />
+     
+
+      {/* Test Routes */}
+      <Route path="/test-connection" element={<TestConnection />} />
+      <Route path="/login-test" element={<LoginTest />} />
+      <Route path="/debug" element={<DebugPage />} />
+      <Route path="/role-test" element={<RoleTest />} />
+
+      {/* Default Route */}
+      <Route path="/" element={<Navigate to="/login" replace />} />
+
+>>>>>>> e494192 (Final Push)
       {/* Catch-all route for invalid URLs */}
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>

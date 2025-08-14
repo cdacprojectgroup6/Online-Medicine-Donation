@@ -1,4 +1,5 @@
 // User Service - ASP.NET Core Integration
+<<<<<<< HEAD
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://localhost:44344/api';
 
 // Helper function to handle API responses
@@ -48,12 +49,70 @@ const handleApiResponse = async (response) => {
 };
 
 
+=======
+import axios from 'axios';
+
+const API_BASE_URL = 'https://medkindbackend.azurewebsites.net/api';
+
+// Create axios instance with default config
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Add request interceptor to include auth token
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('user_token') || localStorage.getItem('admin_token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+// Add response interceptor for error handling
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    let errorMessage = 'Request failed';
+
+    if (error.response) {
+      switch (error.response.status) {
+        case 400: errorMessage = 'Bad request: Please check your input data'; break;
+        case 401: errorMessage = 'Unauthorized: Please check your credentials'; break;
+        case 403: errorMessage = 'Forbidden'; break;
+        case 404: errorMessage = 'Not found'; break;
+        case 409: errorMessage = 'Conflict: Email may already be in use'; break;
+        case 422: errorMessage = 'Validation error'; break;
+        case 500: errorMessage = 'Internal server error'; break;
+        default: errorMessage = `Error ${error.response.status}`;
+      }
+
+      if (error.response.data) {
+        errorMessage = error.response.data?.message || error.response.data?.error || errorMessage;
+      }
+    }
+
+    console.error('API Error:', {
+      status: error.response?.status,
+      url: error.config?.url,
+      message: errorMessage
+    });
+
+    const customError = new Error(errorMessage);
+    customError.status = error.response?.status;
+    throw customError;
+  }
+);
+>>>>>>> e494192 (Final Push)
 
 export const userService = {
   // Test API connection
   async testConnection() {
     try {
       console.log('Testing connection to:', API_BASE_URL);
+<<<<<<< HEAD
       const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: 'POST',
         headers: {
@@ -67,6 +126,25 @@ export const userService = {
       return response.status === 401 || response.status === 400;
     } catch (error) {
       console.error('Connection test failed:', error);
+=======
+      const response = await api.post('/auth/login', { 
+        email: 'a@gmail.com', 
+        password: 'Pass@123' 
+      });
+      console.log('Connection test response:', response.status);
+      // If we get here, the server is running and responding
+      return true;
+    } catch (error) {
+      console.error('Connection test failed:', error);
+      // If we get a 401 (Unauthorized), it means the server is running but credentials are wrong
+      // If we get a 400 (Bad Request), it means the server is running
+      // Both indicate the backend is accessible
+      if (error.response && (error.response.status === 401 || error.response.status === 400)) {
+        console.log('✅ Backend is accessible - got expected error response');
+        return true;
+      }
+      // For other errors (network, server down, etc.), return false
+>>>>>>> e494192 (Final Push)
       return false;
     }
   },
@@ -74,11 +152,16 @@ export const userService = {
   // Get all users
   async getAllUsers() {
     try {
+<<<<<<< HEAD
       const response = await fetch(`${API_BASE_URL}/users`);
       if (!response.ok) {
         throw new Error('Failed to fetch users');
       }
       return await response.json();
+=======
+      const response = await api.get('/users');
+      return response.data;
+>>>>>>> e494192 (Final Push)
     } catch (error) {
       console.error('Error fetching users:', error);
       throw error;
@@ -88,11 +171,16 @@ export const userService = {
   // Get user by ID
   async getUserById(userId) {
     try {
+<<<<<<< HEAD
       const response = await fetch(`${API_BASE_URL}/users/${userId}`);
       if (!response.ok) {
         throw new Error('Failed to fetch user');
       }
       return await response.json();
+=======
+      const response = await api.get(`/users/${userId}`);
+      return response.data;
+>>>>>>> e494192 (Final Push)
     } catch (error) {
       console.error('Error fetching user:', error);
       throw error;
@@ -102,6 +190,7 @@ export const userService = {
   // Create new user
   async createUser(userData) {
     try {
+<<<<<<< HEAD
       const response = await fetch(`${API_BASE_URL}/users`, {
         method: 'POST',
         headers: {
@@ -113,6 +202,10 @@ export const userService = {
         throw new Error('Failed to create user');
       }
       return await response.json();
+=======
+      const response = await api.post('/users', userData);
+      return response.data;
+>>>>>>> e494192 (Final Push)
     } catch (error) {
       console.error('Error creating user:', error);
       throw error;
@@ -122,6 +215,7 @@ export const userService = {
   // Update user
   async updateUser(userId, userData) {
     try {
+<<<<<<< HEAD
       const response = await fetch(`${API_BASE_URL}/users/${userId}`, {
         method: 'PUT',
         headers: {
@@ -133,12 +227,17 @@ export const userService = {
         throw new Error('Failed to update user');
       }
       return await response.json();
+=======
+      const response = await api.put(`/users/${userId}`, userData);
+      return response.data;
+>>>>>>> e494192 (Final Push)
     } catch (error) {
       console.error('Error updating user:', error);
       throw error;
     }
   },
 
+<<<<<<< HEAD
   // Delete user
   async deleteUser(userId) {
     try {
@@ -154,6 +253,43 @@ export const userService = {
       throw error;
     }
   },
+=======
+  //Delete user
+  // async deleteUser(userId) {
+  //   try {
+  //     const response = await fetch(`${API_BASE_URL}/users/${userId}`, {
+  //       method: 'DELETE',
+  //     });
+      
+  //     if (!response.ok) {
+  //       throw new Error('Failed to delete user');
+  //     }
+  //     return true;
+  //   } catch (error) {
+  //     console.error('Error deleting user:', error);
+  //     throw error;
+  //   }
+  // }
+
+  //Delete user
+async deleteUser(userId) {
+  try {
+    const response = await api.delete(`/users/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting user:', error);
+    throw error;
+  }
+}
+
+
+  
+  
+  
+  
+  ,
+
+>>>>>>> e494192 (Final Push)
 
   // User registration
   async register(userData) {
@@ -211,6 +347,7 @@ export const userService = {
   
       console.log('Cleaned registration data:', cleanedData);
   
+<<<<<<< HEAD
       const response = await fetch(`${API_BASE_URL}/auth/register`, {
         method: 'POST',
         headers: {
@@ -221,6 +358,12 @@ export const userService = {
   
       console.log('Response status:', response.status);
       return await handleApiResponse(response);
+=======
+      const response = await api.post('/auth/register', cleanedData);
+  
+      console.log('Response status:', response.status);
+      return response.data;
+>>>>>>> e494192 (Final Push)
     } catch (error) {
       console.error('Error in user registration:', error);
   
@@ -229,7 +372,11 @@ export const userService = {
       }
   
       if (error.message.includes('Failed to fetch')) {
+<<<<<<< HEAD
         throw new Error('Connection failed: Please ensure the backend server is running on https://localhost:44344');
+=======
+        throw new Error('Connection failed: Please ensure the backend server is running on https://medkindbackend.azurewebsites.net');
+>>>>>>> e494192 (Final Push)
       }
   
       throw error;
@@ -248,6 +395,7 @@ export const userService = {
   async loginUser(credentials) {
     try {
       console.log('Sending login data:', credentials);
+<<<<<<< HEAD
       const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: 'POST',
         headers: {
@@ -298,6 +446,50 @@ export const userService = {
       }
       
       return data;
+=======
+      const response = await api.post('/auth/login', credentials);
+      
+      const data = response.data;
+  
+      // Ensure token exists
+      if (!data || !data.token) {
+        throw new Error('No token received from server');
+      }
+  
+      // Decode the token to extract user info
+      let user = null;
+      try {
+        const tokenParts = data.token.split('.');
+        if (tokenParts.length === 3) {
+          const base64Url = tokenParts[1];
+          const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+          const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+          const payload = JSON.parse(jsonPayload);
+          user = {
+            email: payload.email,
+            role: payload.role,
+            name: payload.name || payload.email.split('@')[0], // Fallback name
+          };
+        } else {
+          // Non-JWT token or invalid format, use credentials as fallback
+          user = {
+            email: credentials.email,
+            role: credentials.role || 'User',
+            name: credentials.email.split('@')[0],
+          };
+        }
+      } catch (decodeError) {
+        console.warn('Token decoding failed, using credentials as fallback:', decodeError);
+        user = {
+          email: credentials.email,
+          role: credentials.role || 'User',
+          name: credentials.email.split('@')[0],
+        };
+      }
+  
+      // Return token and user object
+      return { token: data.token, user };
+>>>>>>> e494192 (Final Push)
     } catch (error) {
       console.error('Error in user login:', error);
       throw error;
@@ -307,6 +499,7 @@ export const userService = {
   // Get user profile
   async getUserProfile() {
     try {
+<<<<<<< HEAD
       const response = await fetch(`${API_BASE_URL}/users/profile`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -316,6 +509,10 @@ export const userService = {
         throw new Error('Failed to fetch profile');
       }
       return await response.json();
+=======
+      const response = await api.get('/users/profile');
+      return response.data;
+>>>>>>> e494192 (Final Push)
     } catch (error) {
       console.error('Error fetching profile:', error);
       throw error;
@@ -325,6 +522,7 @@ export const userService = {
   // Update user profile
   async updateUserProfile(profileData) {
     try {
+<<<<<<< HEAD
       const response = await fetch(`${API_BASE_URL}/users/profile`, {
         method: 'PUT',
         headers: {
@@ -337,6 +535,10 @@ export const userService = {
         throw new Error('Failed to update profile');
       }
       return await response.json();
+=======
+      const response = await api.put('/users/profile', profileData);
+      return response.data;
+>>>>>>> e494192 (Final Push)
     } catch (error) {
       console.error('Error updating profile:', error);
       throw error;
@@ -346,11 +548,16 @@ export const userService = {
   // Search users
   async searchUsers(searchTerm) {
     try {
+<<<<<<< HEAD
       const response = await fetch(`${API_BASE_URL}/users/search?q=${encodeURIComponent(searchTerm)}`);
       if (!response.ok) {
         throw new Error('Failed to search users');
       }
       return await response.json();
+=======
+      const response = await api.get(`/users/search?q=${encodeURIComponent(searchTerm)}`);
+      return response.data;
+>>>>>>> e494192 (Final Push)
     } catch (error) {
       console.error('Error searching users:', error);
       throw error;
@@ -360,11 +567,16 @@ export const userService = {
   // Get users by role
   async getUsersByRole(role) {
     try {
+<<<<<<< HEAD
       const response = await fetch(`${API_BASE_URL}/users/role/${role}`);
       if (!response.ok) {
         throw new Error('Failed to fetch users by role');
       }
       return await response.json();
+=======
+      const response = await api.get(`/users/role/${role}`);
+      return response.data;
+>>>>>>> e494192 (Final Push)
     } catch (error) {
       console.error('Error fetching users by role:', error);
       throw error;

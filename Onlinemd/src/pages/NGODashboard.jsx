@@ -13,6 +13,12 @@ import { Textarea } from '@/components/ui/textarea';
 import { toast } from '@/components/ui/use-toast';
 import { useAuth } from '@/contexts/AuthContext';
 import DashboardLayout from '@/components/DashboardLayout';
+<<<<<<< HEAD
+=======
+import { ClipboardList } from 'lucide-react';
+
+
+>>>>>>> e494192 (Final Push)
 
 const NGODashboard = () => {
   const { user } = useAuth();
@@ -160,7 +166,11 @@ const NGODashboard = () => {
   const handleRequestMedicine = (donation) => {
     toast({
       title: "Request sent!",
+<<<<<<< HEAD
       description: `Your request for ${donation.medicineName} has been sent to the donor.`,
+=======
+      description: `Your request for ${donation.medicineName} has been sent to the admin.`,
+>>>>>>> e494192 (Final Push)
     });
   };
 
@@ -244,14 +254,22 @@ const NGODashboard = () => {
                   <Plus className="w-4 h-4 mr-2" />
                   Create Request
                 </Button>
+<<<<<<< HEAD
                 <Button
+=======
+                {/* <Button
+>>>>>>> e494192 (Final Push)
                   onClick={() => navigate('/ngo/requests')}
                   variant="outline"
                   className="border-white/20 text-white hover:bg-white/10"
                 >
                   <ClipboardList className="w-4 h-4 mr-2" />
                   View Requests
+<<<<<<< HEAD
                 </Button>
+=======
+                </Button> */}
+>>>>>>> e494192 (Final Push)
               </div>
             </div>
           </motion.div>
@@ -296,14 +314,22 @@ const NGODashboard = () => {
               <div className="p-6">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                   <h2 className="text-xl font-semibold text-white">Your Medicine Requests</h2>
+<<<<<<< HEAD
                   <Button
+=======
+                  {/* <Button
+>>>>>>> e494192 (Final Push)
                     onClick={() => setShowRequestDialog(true)}
                     variant="outline"
                     className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10"
                   >
                     <Plus className="w-4 h-4 mr-2" />
                     New Request
+<<<<<<< HEAD
                   </Button>
+=======
+                  </Button> */}
+>>>>>>> e494192 (Final Push)
                 </div>
 
                 {ngoRequests.length === 0 ? (
@@ -348,7 +374,11 @@ const NGODashboard = () => {
                             )}
                           </div>
                           
+<<<<<<< HEAD
                           <Button
+=======
+                          {/* <Button
+>>>>>>> e494192 (Final Push)
                             variant="outline"
                             size="sm"
                             onClick={() => toast({
@@ -357,7 +387,11 @@ const NGODashboard = () => {
                             })}
                           >
                             Manage
+<<<<<<< HEAD
                           </Button>
+=======
+                          </Button> */}
+>>>>>>> e494192 (Final Push)
                         </div>
                       </div>
                     ))}
@@ -443,7 +477,11 @@ const NGODashboard = () => {
                     
                     {filteredDonations.length > 5 && (
                       <div className="text-center pt-4">
+<<<<<<< HEAD
                         <Button
+=======
+                        {/* <Button
+>>>>>>> e494192 (Final Push)
                           variant="outline"
                           onClick={() => toast({
                             title: "🚧 Feature coming soon!",
@@ -452,7 +490,11 @@ const NGODashboard = () => {
                           className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10"
                         >
                           View All Medicines ({filteredDonations.length} available)
+<<<<<<< HEAD
                         </Button>
+=======
+                        </Button> */}
+>>>>>>> e494192 (Final Push)
                       </div>
                     )}
                   </div>

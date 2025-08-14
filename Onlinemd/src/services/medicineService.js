@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Medicine Service - MySQL Integration
 // This file demonstrates how to integrate with MySQL database for medicine CRUD operations
 
@@ -206,3 +207,82 @@ WHERE ExpiryDate <= DATE_ADD(CURDATE(), INTERVAL 30 DAY)
 AND Status != 'Donated'
 ORDER BY ExpiryDate ASC;
 */ 
+=======
+// src/services/medicineService.js
+import axios from 'axios';
+
+const API_BASE_URL = 'https://medkindbackend.azurewebsites.net/api';
+
+// Create axios instance with default config
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Add request interceptor to include auth token
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('user_token') || localStorage.getItem('admin_token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+// Add response interceptor for error handling
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    console.error('API Error:', error.response?.data || error.message);
+    throw error;
+  }
+);
+
+export const medicineService = {
+  async getAllMedicines() {
+    try {
+      const response = await api.get('/medicines');
+      return response.data;
+    } catch (error) {
+      throw new Error('Error fetching medicines');
+    }
+  },
+
+  async getMedicinesByDonor(donorId) {
+    try {
+      const response = await api.get(`/medicines/donor/${donorId}`);
+      return response.data;
+    } catch (error) {
+      throw new Error('Error fetching donor medicines');
+    }
+  },
+
+  async getMedicineById(id) {
+    try {
+      const response = await api.get(`/medicines/${id}`);
+      return response.data;
+    } catch (error) {
+      throw new Error('Error fetching medicine details');
+    }
+  },
+
+  async addMedicine(medicine) {
+    try {
+      const response = await api.post('/medicines', medicine);
+      return response.data;
+    } catch (error) {
+      throw new Error('Error adding medicine');
+    }
+  },
+
+  async deleteMedicine(id) {
+    try {
+      const response = await api.delete(`/medicines/${id}`);
+      return response.data;
+    } catch (error) {
+      throw new Error('Error deleting medicine');
+    }
+  },
+};
+>>>>>>> e494192 (Final Push)
