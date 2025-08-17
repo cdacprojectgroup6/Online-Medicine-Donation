@@ -1,6 +1,6 @@
-💊 Online Medicine Donation Platform
+# 💊 Online Medicine Donation Platform
 
- 📌 Project Overview
+# 📌 Project Overview
 The **Online Medicine Donation Platform** is a full-stack web application designed to connect individual and organizational donors with NGOs and hospitals in need of surplus medicines.  
 
 It helps reduce wastage by enabling secure medicine donations, real-time inventory updates, and role-based access for different users (Admins, NGOs, Donors).  
@@ -53,31 +53,88 @@ This project was developed as part of CDAC Project Group 6.
 
 ---
 
- 📂 Repository Structure
-Online-Medicine-Donation/
+
+# Online Medicine Donation - Project Structure
+
+```
+OnlineMedicineDonation/
+├── 📁 MedDB/
+│   ├── databaseScript.sql
+│   └── MedDB.sql
 │
-├── MedDB/ # Database scripts (MySQL)
-│ ├── MedDB.sql
-│ └── databaseScript.sql
+├── 📁 Online Medicine Donation/
+│   ├── 📁 Onlinemd - frontend/
+│   │   ├── package.json
+│   │   ├── vite.config.js
+│   │   ├── tailwind.config.js
+│   │   ├── 📁 src/
+│   │   │   ├── App.jsx
+│   │   │   ├── main.jsx
+│   │   │   ├── 📁 components/
+│   │   │   │   ├── DashboardLayout.jsx
+│   │   │   │   ├── ConnectionStatus.jsx
+│   │   │   │   └── 📁 ui/ (shadcn/ui components)
+│   │   │   ├── 📁 contexts/
+│   │   │   │   └── AuthContext.jsx
+│   │   │   ├── 📁 pages/
+│   │   │   │   ├── LoginPage.jsx
+│   │   │   │   ├── AdminDashboard.jsx
+│   │   │   │   ├── DonorDashboard.jsx
+│   │   │   │   ├── HospitalDashboard.jsx
+│   │   │   │   ├── NGODashboard.jsx
+│   │   │   │   ├── MedicinePage.jsx
+│   │   │   │   ├── DonationList.jsx
+│   │   │   │   ├── RequestList.jsx
+│   │   │   │   └── 📁 signup/
+│   │   │   │       ├── AdminSignup.jsx
+│   │   │   │       ├── DonorSignup.jsx
+│   │   │   │       ├── HospitalSignup.jsx
+│   │   │   │       └── NgoSignup.jsx
+│   │   │   └── 📁 services/
+│   │   │       ├── adminService.js
+│   │   │       ├── donationService.js
+│   │   │       ├── hospitalService.js
+│   │   │       ├── medicineService.js
+│   │   │       ├── ngoService.js
+│   │   │       ├── requestService.js
+│   │   │       └── userService.js
+│   │   └── 📁 dist/ (build output)
+│   │
+│   └── 📁 Solution1 - backend/
+│       └── 📁 OnlineMedDonation/
+│           ├── Program.cs
+│           ├── appsettings.json
+│           ├── OnlineMedDonation.csproj
+│           ├── 📁 Controllers/
+│           │   ├── AuthController.cs
+│           │   ├── AdminAuthController.cs
+│           │   ├── AdminsController.cs
+│           │   ├── DonationsController.cs
+│           │   ├── HospitalsController.cs
+│           │   ├── MedicinesController.cs
+│           │   ├── NgoesController.cs
+│           │   ├── RequestsController.cs
+│           │   ├── UsersController.cs
+│           │   └── AnalyticsController.cs
+│           ├── 📁 Models/
+│           │   ├── User.cs
+│           │   ├── Admin.cs
+│           │   ├── Hospital.cs
+│           │   ├── Ngo.cs
+│           │   ├── Medicine.cs
+│           │   ├── Donation.cs
+│           │   ├── Request.cs
+│           │   └── MedDonationContext.cs
+│           ├── 📁 DTOs/
+│           │   ├── LoginDto.cs
+│           │   ├── RegisterDto.cs
+│           │   └── ChangePasswordDto.cs
+│           └── 📁 Views/ (MVC views)
 │
-├── Online Medicine Donation/
-│ ├── Onlinemd - frontend/ # React.js + Redux + Tailwind
-│ │ ├── public/
-│ │ ├── src/
-│ │ └── tools/
-│ │
-│ └── Solution1 - backend/ # .NET Core + Express.js
-│ ├── Controllers/
-│ ├── Models/
-│ ├── Views/
-│ ├── wwwroot/
-│ └── Program.cs
-│
-├── docs/ # Documentation, PPT, Reports
-│ ├── GROUP-6.doc
-│ └── OMDppt.pptx
-│
-└── README.md # Project Overview
+├── GROUP-6.doc
+├── OMDppt.pptx
+└── README.md
+```
 
 ---
 
@@ -107,7 +164,7 @@ Frontend: http://localhost:5173
 
 Backend API: http://localhost:44344
 
-👥 Contributors
+## 👥 Contributors
 Group 6 – CDAC Project Team
 1. Susheel Tiwari
 2. Ajinkya Pruthviraj Borse
