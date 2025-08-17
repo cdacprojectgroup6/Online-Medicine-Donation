@@ -7,6 +7,34 @@ It helps reduce wastage by enabling secure medicine donations, real-time invento
 
 This project was developed as part of **CDAC Project Group 6**.
 
+## 📱 Application Preview
+
+### 🔐 Login & Authentication
+*Multi-role login system with intuitive user interface*
+![Login Page](screenshots/login-authentication.png)
+
+### 📊 Dashboard Views
+
+#### Admin Dashboard - Complete Platform Overview
+*Monitor platform performance, manage users, and track all activities*
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+#### Donor Dashboard - Track Your Impact
+*View donation history and see lives impacted by your contributions*
+![Donor Dashboard](screenshots/donor-dashboard.png)
+
+#### Hospital Dashboard - Request & Manage Medicines
+*Browse available medicines and manage hospital requests efficiently*
+![Hospital Dashboard](screenshots/hospital-dashboard.png)
+
+#### NGO Dashboard - Community Health Management
+*Create requests and connect with donors to help communities*
+![NGO Dashboard](screenshots/ngo-dashboard.png)
+
+### 💊 Medicine Management System
+*Comprehensive medicine inventory with verification and tracking*
+![Medicine Management](screenshots/medicine-management.png)
+
 ## 🕒 Project Duration
 - **Timeline**: 2 Months
 - **Platform**: Visual Studio, GitHub
