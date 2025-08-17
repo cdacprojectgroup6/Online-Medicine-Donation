@@ -11,29 +11,30 @@ This project was developed as part of **CDAC Project Group 6**.
 
 ### 🔐 Login & Authentication
 *Multi-role login system with intuitive user interface*
-![Login Page](screenshots/login-authentication.png)
+<img width="1276" height="578" alt="1pp" src="https://github.com/user-attachments/assets/28e89ed2-419d-41e2-823f-768ea6f96334" />
 
 ### 📊 Dashboard Views
 
 #### Admin Dashboard - Complete Platform Overview
 *Monitor platform performance, manage users, and track all activities*
-![Admin Dashboard](screenshots/admin-dashboard.png)
+<img width="1265" height="571" alt="5p" src="https://github.com/user-attachments/assets/ebd121f3-ec3f-40ca-9ab2-2cda8fc9eabb" />
 
 #### Donor Dashboard - Track Your Impact
 *View donation history and see lives impacted by your contributions*
-![Donor Dashboard](screenshots/donor-dashboard.png)
+<img width="1260" height="565" alt="6p" src="https://github.com/user-attachments/assets/7b1c4994-4441-4957-8f1c-91b1e9d965ea" />
 
 #### Hospital Dashboard - Request & Manage Medicines
 *Browse available medicines and manage hospital requests efficiently*
-![Hospital Dashboard](screenshots/hospital-dashboard.png)
+<img width="1258" height="561" alt="3p" src="https://github.com/user-attachments/assets/46479075-67fc-4bf3-a1a9-3e11f08ddb1f" />
 
 #### NGO Dashboard - Community Health Management
 *Create requests and connect with donors to help communities*
-![NGO Dashboard](screenshots/ngo-dashboard.png)
+<img width="1270" height="577" alt="4p" src="https://github.com/user-attachments/assets/238591b0-fa78-43b9-9836-177904c0d199" />
 
 ### 💊 Medicine Management System
 *Comprehensive medicine inventory with verification and tracking*
-![Medicine Management](screenshots/medicine-management.png)
+<img width="1288" height="586" alt="2p" src="https://github.com/user-attachments/assets/2dd4b607-24bc-4c01-850a-b387f2ffdb26" />
+
 
 ## 🕒 Project Duration
 - **Timeline**: 2 Months
