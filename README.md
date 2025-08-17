@@ -1,6 +1,6 @@
 # 💊 Online Medicine Donation Platform
 
-# 📌 Project Overview
+📌 Project Overview
 The **Online Medicine Donation Platform** is a full-stack web application designed to connect individual and organizational donors with NGOs and hospitals in need of surplus medicines.  
 
 It helps reduce wastage by enabling secure medicine donations, real-time inventory updates, and role-based access for different users (Admins, NGOs, Donors).  
