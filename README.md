@@ -1,60 +1,46 @@
 # 💊 Online Medicine Donation Platform
 
-📌 Project Overview
-The **Online Medicine Donation Platform** is a full-stack web application designed to connect individual and organizational donors with NGOs and hospitals in need of surplus medicines.  
+## 📌 Project Overview
+The Online Medicine Donation Platform is a full-stack web application designed to connect individual and organizational donors with NGOs and hospitals in need of surplus medicines.
 
-It helps reduce wastage by enabling secure medicine donations, real-time inventory updates, and role-based access for different users (Admins, NGOs, Donors).  
+It helps reduce wastage by enabling secure medicine donations, real-time inventory updates, and role-based access for different users (Admins, NGOs, Donors, Hospitals).
 
-This project was developed as part of CDAC Project Group 6.
+This project was developed as part of **CDAC Project Group 6**.
 
----
+## 🕒 Project Duration
+- **Timeline**: 2 Months
+- **Platform**: Visual Studio, GitHub
 
-🕒 Project Duration
-- Timeline: 2 Months  
-- Platform: Visual Studio, GitHub  
+## 🚀 Features
+- 👤 **User Authentication & Role-Based Access**
+- 💊 **Medicine Donation Management**
+- 🏥 **NGO & Hospital Requests**
+- 📊 **Donation Tracking & Real-Time Inventory**
+- 🔒 **Secure Login with JWT Authentication**
+- 🌐 **RESTful APIs for communication**
+- ✅ **Thoroughly tested using Postman**
 
----
+## 🛠️ Tech Stack
 
-🚀 Features
-- 👤 User Authentication & Role-Based Access
-- 💊 Medicine Donation Management
-- 🏥 NGO & Hospital Requests
-- 📊 Donation Tracking & Real-Time Inventory
-- 🔒 Secure Login with Session Management
-- 🌐 REST & GraphQL APIs for communication
-- ⚡ Performance Boost with Redis Caching
-- 🐳 Docker & Kubernetes for Deployment on AWS
-- ✅ Thoroughly tested using Postman
+### 🔹 Frontend
+- **React.js** with Vite
+- **Tailwind CSS** with shadcn/ui components
+- **Context API** for state management
 
----
+### 🔹 Backend
+- **.NET 8 Core** (C#)
+- **ASP.NET Core Web API**
+- **Entity Framework Core**
 
-🛠️ Tech Stack
+### 🔹 Database
+- **SQL Server** (MedDB)
 
-🔹 Frontend
-- React.js  
-- Redux  
-- Tailwind CSS  
+### 🔹 Tools & Development
+- **Visual Studio** / **VS Code**
+- **GitHub** (Version Control)
+- **Postman** (API Testing)
 
-🔹 Backend
-- .NET Core (C#)  
-- Express.js  
-
-🔹 Database
-- MySQL (MedDB)  
-- Redis (for caching)  
-
-🔹 Tools & Deployment
-- Docker  
-- Kubernetes  
-- AWS  
-- GitHub (Version Control)  
-- Postman (API Testing)  
-- Visual Studio  
-
----
-
-
-# Online Medicine Donation - Project Structure
+## 📁 Project Structure
 
 ```
 OnlineMedicineDonation/
@@ -136,41 +122,67 @@ OnlineMedicineDonation/
 └── README.md
 ```
 
----
-
 ## ⚙️ Setup Instructions
 
-1️⃣ Clone the Repository
-bash
+### Prerequisites
+- **.NET 8 SDK**
+- **Node.js** (v16 or higher)
+- **SQL Server** (LocalDB or full version)
+- **Git**
+
+### 1️⃣ Clone the Repository
+```bash
 git clone https://github.com/cdacprojectgroup6/Online-Medicine-Donation.git
 cd Online-Medicine-Donation
-2️⃣ Setup Database
-Import the SQL scripts from the MedDB/ folder into your MySQL server.
+```
 
-3️⃣ Run the Backend
-bash
-cd "Online Medicine Donation/Solution1 - backend"
+### 2️⃣ Setup Database
+1. Open SQL Server Management Studio
+2. Import the SQL scripts from the `MedDB/` folder
+3. Update connection string in `appsettings.json` if needed
+
+### 3️⃣ Run the Backend
+```bash
+cd "Online Medicine Donation/Solution1 - backend/OnlineMedDonation"
 dotnet restore
 dotnet run
+```
 
-4️⃣ Run the Frontend
-bash
+### 4️⃣ Run the Frontend
+```bash
 cd "Online Medicine Donation/Onlinemd - frontend"
 npm install
-npm start
+npm run dev
+```
 
-5️⃣ Access the Application
-Frontend: http://localhost:5173
+### 5️⃣ Access the Application
+- **Frontend**: http://localhost:5173
+- **Backend API**: http://localhost:5000 (or check console output)
 
-Backend API: http://localhost:44344
+## 🔐 Default User Roles
+The system supports four user roles:
+- **Admin**: Full system access and management
+- **Donor**: Can donate medicines and track donations
+- **Hospital**: Can request medicines and manage inventory
+- **NGO**: Can request medicines and coordinate with donors
+
+## 🧪 API Testing
+Use the provided Postman collection or test endpoints directly:
+- Authentication: `/api/auth/login`
+- Medicines: `/api/medicines`
+- Donations: `/api/donations`
+- Requests: `/api/requests`
 
 ## 👥 Contributors
-Group 6 – CDAC Project Team
-1. Susheel Tiwari
-2. Ajinkya Pruthviraj Borse
-3. Prem Ragade
-4. Ayesha Sayyad
-5. Sharwari Waghumbare
+**Group 6 – CDAC Project Team**
+- Susheel Tiwari
+- Ajinkya Pruthviraj Borse
+- Prem Ragade
+- Ayesha Sayyad
+- Sharwari Waghumbare
 
-📜 License
-This project is developed for academic purposes.
+## 📜 License
+This project is developed for academic purposes as part of CDAC curriculum.
+
+---
+**Note**: This is an educational project demonstrating full-stack development skills with modern web technologies.
