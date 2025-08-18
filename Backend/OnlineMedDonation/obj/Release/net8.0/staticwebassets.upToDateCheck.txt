@@ -1,0 +1,6 @@
+wwwroot\.htaccess
+wwwroot\assets\index-04e46b6c.js
+wwwroot\assets\index-1333c4b1.css
+wwwroot\assets\index.es-e9c346ad.js
+wwwroot\assets\purify.es-31816194.js
+wwwroot\index.html
