@@ -208,7 +208,7 @@ Use the provided Postman collection or test endpoints directly:
 - Ajinkya Pruthviraj Borse
 - Prem Ragade
 - Ayesha Sayyad
-- Sharwari Waghumbare
+- Sharvari Waghumbare
 
 ## 📜 License
 This project is developed for academic purposes as part of CDAC curriculum.
